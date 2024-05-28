@@ -1,4 +1,4 @@
-let mensajeBienvenida = prompt("¡Hola! Bienvenido a nuestra tienda de Tecnología, ¿deseas continuar?");
+let mensajeBienvenida = prompt("¡Hola! Bienvenido a nuestra tienda de Tecnología!");
 let nombre;
 do {
     nombre = prompt("Ingrese su nombre");
@@ -36,7 +36,7 @@ let carrito = [];
 do {
     let productoSeleccionado;
     do {
-        productoSeleccionado = prompt("Por favor, elija un producto para conocer más información acerca de él o ver el carrito: \n1. Iphone 13                        Precio: US$1.004 \n2. Ipad Pro 11                      Precio: US$ 2.117,00 \n3. MacBook Pro 15              Precio: US$ 2.897,00 \n4. Comprar \n5. Carrito \n6. Calculadora");
+        productoSeleccionado = prompt("Por favor, elija un producto para conocer más información acerca de él o ver el carrito: \n1. Iphone 13                        Precio: US$1.004 \n2. Ipad Pro 11                      Precio: US$ 2.117,00 \n3. MacBook Pro 15              Precio: US$ 2.897,00 \n4. Comprar \n5. Carrito \n6. Calculadora \n7 Salir del menú");
 
         switch (productoSeleccionado) {
             case "1":
@@ -73,12 +73,20 @@ do {
             case "6":
                 calculadoraBasica();
                 break;
-            default:
-                alert("Por favor, seleccione una opción válida.");
-        }
-    } while (!productoSeleccionado || (productoSeleccionado !== "1" && productoSeleccionado !== "2" && productoSeleccionado !== "3" && productoSeleccionado !== "4" && productoSeleccionado !== "5" && productoSeleccionado !== "6"));
+                case "7":
+                    alert("Saliendo del menú.");
+                    productoSeleccionado = null;
+                    break;
+                default:
+                    alert("Por favor, seleccione una opción válida.");
+            }
+        } while (productoSeleccionado && (productoSeleccionado !== "1" && productoSeleccionado !== "2" && productoSeleccionado !== "3" && productoSeleccionado !== "4" && productoSeleccionado !== "5" && productoSeleccionado !== "6" && productoSeleccionado !== "7"));
 
-} while (confirm("¿Desea volver a la lista de productos?")); // El bucle continuará si el usuario confirma que quiere volver a la lista de productos
+        if (productoSeleccionado === null) {
+            break;
+        }
+
+} while (confirm("¿Desea volver a la lista de productos?"));
 
 function confirmarCompra(producto, precio) {
     let confirmar = confirm(`El ${producto} cuesta US$${precio}. ¿Desea agregarlo al carrito y proceder al pago?`);
