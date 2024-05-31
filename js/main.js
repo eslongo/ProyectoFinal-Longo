@@ -1,4 +1,4 @@
-let mensajeBienvenida = prompt("¡Hola! Bienvenido a nuestra tienda de Tecnología!");
+let mensajeBienvenida = alert("¡Hola! Bienvenido a nuestra tienda de Tecnología!");
 let nombre;
 do {
     nombre = prompt("Ingrese su nombre");
