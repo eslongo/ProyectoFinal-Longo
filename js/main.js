@@ -29,7 +29,28 @@ do {
     }
 } while (isNaN(edad) || edad === "" || parseInt(edad) < 13 || parseInt(edad) > 120);
 
-alert("¡Que alegría que estés aquí! Por favor, conoce nuestros productos :D!");
+alert("¡Que alegría que estés aquí! Por favor, conoce nuestros productos!");
+
+const productos = [
+    {
+        id: 1,
+        nombre: "iPhone 13",
+        precio: 1004,
+        descripcion: "El iPhone 13, lanzado en septiembre de 2021, presenta un diseño similar al iPhone 12, con opciones de tamaño estándar y mini. Equipado con el potente chip A15 Bionic, ofrece un rendimiento rápido y eficiente. Mejoras en la cámara, pantalla OLED Super Retina XDR y conectividad 5G lo convierten en una opción atractiva para quienes buscan un smartphone de alta calidad."
+    },
+    {
+        id: 2,
+        nombre: "iPad Pro 11",
+        precio: 2117,
+        descripcion: "El iPad Pro de 11 pulgadas es una poderosa tableta fabricada por Apple. Presenta una pantalla Liquid Retina de borde a borde con tecnología ProMotion, que ofrece una experiencia visual impresionante con una frecuencia de actualización de hasta 120 Hz. Equipado con el chip A12Z Bionic de Apple, el iPad Pro 11 ofrece un rendimiento excepcional para tareas intensivas como la edición de video y juegos avanzados."
+    },
+    {
+        id: 3,
+        nombre: "MacBook Pro 15",
+        precio: 2897,
+        descripcion: "Equipado con procesadores Intel Core i7 o i9 de última generación, y en versiones más recientes con el chip M1 de Apple, el MacBook Pro 15 ofrece un rendimiento excepcional para tareas intensivas. Además, cuenta con una potente tarjeta gráfica Radeon Pro o la integrada en los modelos con chip M1, lo que lo hace ideal para edición de video, modelado 3D y juegos avanzados."
+    }
+];
 
 let carrito = [];
 
@@ -113,7 +134,7 @@ function mostrarCarrito() {
         let pagar = confirm(`${mensajeCarrito}\n\n¿Desea proceder al pago?`);
         if (pagar) {
             alert(`Pago realizado con éxito. El total de US$${total.toFixed(2)} ha sido procesado.`);
-            carrito = []; // Vaciar el carrito después del pago
+            carrito = []; 
         } else {
             alert("Has cancelado el proceso de pago.");
         }
