@@ -18,12 +18,11 @@
                     <li><a href="./carrito.html">Carrito</a></li>
                     <li><a href="./contactanos.html">Contactanos</a></li>
                 </ul>
-                <button>Login / Register.</button>
+                <button>Login / Register</button>
             </nav>
         </div>
         <div class="container mt-5">
             <h1 class="text-center mb-4">Productos</h1>
-            <!-- Sección de productos iPhone -->
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="card">
@@ -31,7 +30,7 @@
                         <div class="card-body">
                             <h5 class="card-title">iPhone 15 Pro</h5>
                             <p class="card-text">Precio: $1300</p>
-                            <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
+                            <button class="btn btn-primary agregar-carrito" data-producto='{"nombre":"iPhone 15 Pro", "precio":1300}'>Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
@@ -41,7 +40,7 @@
                         <div class="card-body">
                             <h5 class="card-title">iPhone 14 Pro</h5>
                             <p class="card-text">Precio: $799</p>
-                            <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
+                            <button class="btn btn-primary agregar-carrito" data-producto='{"nombre":"iPhone 14 Pro", "precio":799}'>Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
@@ -51,34 +50,30 @@
                         <div class="card-body">
                             <h5 class="card-title">iPhone 13 Pro</h5>
                             <p class="card-text">Precio: $1200</p>
-                            <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
+                            <button class="btn btn-primary agregar-carrito" data-producto='{"nombre":"iPhone 13 Pro", "precio":1200}'>Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Imagen de fondo entre secciones -->
-            <div class="fondo-productos">
-                <img src="/img/background-ipad.jpg" alt="Imagen de fondo">
-            </div>
-            <!-- Sección de productos iPad -->
-            <div class="row mt-4">
+                <div class="fondo-productos">
+                    <img src="/img/background-ipad.jpg" alt="Imagen de fondo">
+                </div>
                 <div class="col-md-4 mb-4">
                     <div class="card">
                         <img src="/img/ipad11pro.jpg" class="card-img-top" alt="iPad 11 Pro">
                         <div class="card-body">
                             <h5 class="card-title">iPad 11 Pro</h5>
                             <p class="card-text">Precio: $150</p>
-                            <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
+                            <button class="btn btn-primary agregar-carrito" data-producto='{"nombre":"iPad 11 Pro", "precio":150}'>Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="img/periferico.jpg" class="card-img-top" alt="Periférico">
+                        <img src="/img/periferico.jpg" class="card-img-top" alt="Periférico">
                         <div class="card-body">
                             <h5 class="card-title">Periférico</h5>
                             <p class="card-text">Precio: $99</p>
-                            <button class="btn btn-primary agregar-carrito">Agregar al carrito</button>
+                            <button class="btn btn-primary agregar-carrito" data-producto='{"nombre":"Periférico", "precio":99}'>Agregar al carrito</button>
                         </div>
                     </div>
                 </div>
@@ -87,6 +82,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
-    </body>
-    </html>
+        <script src="js/productos.js"></script>
+    </main>
+</body>
+</html>

@@ -1,18 +1,20 @@
-const productos = [
-    { nombre: 'iPhone 15 Pro', precio: 1300, imagen: 'iphone.jpg' },
-    { nombre: 'iPhone 14 Pro', precio: 799, imagen: 'iphone 14pro.jpg' },
-    { nombre: 'iPhone 13 Pro', precio: 1200, imagen: 'iphone 13 pro.jpeg' },
-    { nombre: 'iPad 11 Pro', precio: 150, imagen: 'ipad11pro.jpg' },
-    { nombre: 'Periférico', precio: 99, imagen: 'periferico.jpg' }
-];
 document.addEventListener('DOMContentLoaded', function() {
     const botonesAgregarCarrito = document.querySelectorAll('.agregar-carrito');
+
     botonesAgregarCarrito.forEach(boton => {
         boton.addEventListener('click', function() {
             const producto = JSON.parse(this.getAttribute('data-producto'));
+
+            // Obtener el carrito actual del localStorage o inicializar uno nuevo
             let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Agregar el producto al carrito
             carrito.push(producto);
+
+            // Guardar el carrito actualizado en localStorage
             localStorage.setItem('carrito', JSON.stringify(carrito));
+
+            // Confirmar al usuario
             alert('Producto agregado al carrito');
         });
     });
