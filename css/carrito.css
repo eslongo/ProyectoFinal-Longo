@@ -14,7 +14,7 @@
 }
 
 body{
-    background-color: rgb(17, 17, 17);
+    background-color: white;
 }
 h1{
     color: white;
@@ -71,3 +71,4 @@ button:hover{
     transform: scale(1.1);
     cursor: pointer;
 }
+
