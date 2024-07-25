@@ -6,12 +6,10 @@ class Producto {
         this.imagen = imagen;
     }
 
-    // Método para obtener la información del producto
     obtenerInfo() {
         return `${this.nombre} - $${this.precio}`;
     }
 
-    // Método para crear un botón con la información del producto
     crearBotonAgregar() {
         const boton = document.createElement('button');
         boton.className = 'btn btn-primary agregar-carrito';
@@ -25,25 +23,10 @@ class Producto {
 }
 
 // Función para agregar productos al DOM
-function agregarProductosAlDOM() {
-    const productos = [
-        new Producto('iPhone 15 Pro', 1300, '/img/iphone.jpg'),
-        new Producto('iPhone 14 Pro', 799, '/img/iphone 14pro.jpg'),
-        new Producto('iPhone 13 Pro', 1200, '/img/iphone 13 pro.jpeg'),
-        new Producto('iPad 11 Pro', 150, '/img/ipad11pro.jpg'),
-        new Producto('Xiaomi Pad 6', 467, '/img/xiaomi pad 6 pro.jpeg'),
-        new Producto('Samsung Galaxy TAB S6', 500, '/img/SAMSUNG GALAXY TAB S6.jpg'),
-        new Producto('Samsung Galaxy S23', 500, '/img/samsung-galaxy-s23.jpg'),
-        new Producto('Samsung Galaxy S22', 500, '/img/samsung-galaxy-s22.jpg'),
-        new Producto('Samsung Galaxy S21', 500, '/img/SAMSUNG GALAXY S21.jpg'),
-        new Producto('Xiaomi Redmi Note 14 Pro', 500, '/img/Xiaomi Redmi Note 14 Pro.jpg'),
-        new Producto('Xiaomi Redmi Note 13', 500, '/img/XIAOMI REDMI NOTE 13.jpg'),
-        new Producto('Xiaomi Redmi Note 12', 500, '/img/XIAOMI REDMI NOTE 12.jpg')
-    ];
+function agregarProductosAlDOM(productos) {
+    const contenedor = document.querySelector('.row');
 
-    const contenedor = document.querySelector('.row'); // Asumiendo que los productos se agregan aquí
-
-    productos.forEach(({ nombre, precio, imagen }) => {
+    productos.forEach(producto => {
         const col = document.createElement('div');
         col.className = 'col-md-4 mb-4';
 
@@ -51,56 +34,65 @@ function agregarProductosAlDOM() {
         card.className = 'card';
 
         const img = document.createElement('img');
-        img.src = imagen;
+        img.src = producto.imagen;
         img.className = 'card-img-top';
-        img.alt = nombre;
+        img.alt = producto.nombre;
 
         const cardBody = document.createElement('div');
         cardBody.className = 'card-body';
 
         const title = document.createElement('h5');
         title.className = 'card-title';
-        title.textContent = nombre;
+        title.textContent = producto.nombre;
 
         const text = document.createElement('p');
         text.className = 'card-text';
-        text.textContent = `Precio: $${precio}`;
+        text.textContent = `Precio: $${producto.precio}`;
 
-        const boton = new Producto(nombre, precio, imagen).crearBotonAgregar();
+        const boton = producto.crearBotonAgregar();
 
-        cardBody.appendChild(title);
-        cardBody.appendChild(text);
-        cardBody.appendChild(boton);
-
-        card.appendChild(img);
-        card.appendChild(cardBody);
-
+        cardBody.append(title, text, boton);
+        card.append(img, cardBody);
         col.appendChild(card);
-
         contenedor.appendChild(col);
     });
 }
 
-document.addEventListener('DOMContentLoaded', agregarProductosAlDOM);
+// Cargar productos desde el archivo JSON
+function cargarProductos() {
+    fetch('data/productos.json')
+        .then(response => response.json())
+        .then(data => {
+            const productos = data.map(item => new Producto(item.nombre, item.precio, item.imagen));
+            agregarProductosAlDOM(productos);
+        })
+        .catch(error => console.error('Error al cargar los productos:', error));
+}
+
+document.addEventListener('DOMContentLoaded', cargarProductos);
 
 // Función para agregar un producto al carrito
 function agregarAlCarrito(producto) {
-    let carrito = JSON.parse(localStorage.getItem('carrito')) ?? [];
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     const productoExistente = carrito.find(item => item.nombre === producto.nombre);
 
-    productoExistente
-        ? productoExistente.cantidad += 1
-        : carrito.push({ ...producto, cantidad: 1 });
-
+    if (productoExistente) {
+        productoExistente.cantidad += 1;
+    } else {
+        producto.cantidad = 1;
+        carrito.push(producto);
+    }
     localStorage.setItem('carrito', JSON.stringify(carrito));
     alert(`${producto.nombre} ha sido agregado al carrito`);
 }
 
-// Asignar el evento a los botones de "Agregar al carrito"
-const botonesAgregarCarrito = document.querySelectorAll('.agregar-carrito');
-botonesAgregarCarrito.forEach(boton => {
-    boton.addEventListener('click', () => {
-        const producto = JSON.parse(boton.getAttribute('data-producto'));
-        agregarAlCarrito(producto);
+// Añadir evento a los botones de 'Agregar al carrito'
+document.addEventListener('DOMContentLoaded', () => {
+    const botonesAgregarCarrito = document.querySelectorAll('.agregar-carrito');
+    botonesAgregarCarrito.forEach(boton => {
+        boton.addEventListener('click', () => {
+            const producto = JSON.parse(boton.dataset.producto);
+            agregarAlCarrito(producto);
+        });
     });
 });

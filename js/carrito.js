@@ -84,10 +84,8 @@ function disminuirCantidad(event) {
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 
     carrito = carrito.map(producto => {
-        if (producto.nombre === nombreProducto) {
-            if (producto.cantidad > 1) {
-                producto.cantidad -= 1;
-            }
+        if (producto.nombre === nombreProducto && producto.cantidad > 1) {
+            producto.cantidad -= 1;
         }
         return producto;
     });

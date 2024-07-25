@@ -1,0 +1,62 @@
+[
+    {
+        "nombre": "iPhone 15 Pro",
+        "precio": 1300,
+        "imagen": "/img/iphone.jpg"
+    },
+    {
+        "nombre": "iPhone 14 Pro",
+        "precio": 799,
+        "imagen": "/img/iphone 14pro.jpg"
+    },
+    {
+        "nombre": "iPhone 13 Pro",
+        "precio": 1200,
+        "imagen": "/img/iphone 13 pro.jpeg"
+    },
+    {
+        "nombre": "iPad 11 Pro",
+        "precio": 150,
+        "imagen": "/img/ipad11pro.jpg"
+    },
+    {
+        "nombre": "Xiaomi Pad 6",
+        "precio": 467,
+        "imagen": "/img/xiaomi pad 6 pro.jpeg"
+    },
+    {
+        "nombre": "Samsung Galaxy TAB S6",
+        "precio": 500,
+        "imagen": "/img/SAMSUNG GALAXY TAB S6.jpg"
+    },
+    {
+        "nombre": "Samsung Galaxy S23",
+        "precio": 500,
+        "imagen": "/img/samsung-galaxy-s23.jpg"
+    },
+    {
+        "nombre": "Samsung Galaxy S22",
+        "precio": 500,
+        "imagen": "/img/samsung-galaxy-s22.jpg"
+    },
+    {
+        "nombre": "Samsung Galaxy S21",
+        "precio": 500,
+        "imagen": "/img/SAMSUNG GALAXY S21.jpg"
+    },
+    {
+        "nombre": "Xiaomi Redmi Note 14 Pro",
+        "precio": 500,
+        "imagen": "/img/Xiaomi Redmi Note 14 Pro.jpg"
+    },
+    {
+        "nombre": "Xiaomi Redmi Note 13",
+        "precio": 500,
+        "imagen": "/img/XIAOMI REDMI NOTE 13.jpg"
+    },
+    {
+        "nombre": "Xiaomi Redmi Note 12",
+        "precio": 500,
+        "imagen": "/img/XIAOMI REDMI NOTE 12.jpg"
+    }
+]
